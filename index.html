@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <title>Weskitol · Clips de los directos de Westcol</title>
+  <meta name="description" content="Weskitol publica clips de los directos de Westcol, con su autorización, en YouTube y TikTok. Los clips se publican con Weskitol Clips, una herramienta propia del canal.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f7f7f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1012" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <div class="cabecera-interior">
+      <a class="marca" href="./">
+        <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <rect width="64" height="64" rx="16" fill="#ffc53d"/>
+          <path d="M24 18.5v27a2 2 0 0 0 3 1.7l22-13.5a2 2 0 0 0 0-3.4L27 16.8a2 2 0 0 0-3 1.7z" fill="#17181a"/>
+          <rect x="11" y="18" width="5" height="28" rx="2.5" fill="#17181a"/>
+        </svg>
+        Weskitol
+      </a>
+      <nav class="nav" aria-label="Principal">
+        <ul>
+          <li><a href="./" aria-current="page">Inicio</a></li>
+          <li><a href="privacidad.html">Privacidad</a></li>
+          <li><a href="terminos.html">Términos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <h1>Weskitol</h1>
+    <p class="entradilla">Los mejores momentos de los directos de <strong>Westcol</strong>, en clips: Shorts verticales para el celular y videos horizontales para verlos con calma. Publicados con autorización.</p>
+
+    <div class="botones">
+      <a class="boton" href="https://www.youtube.com/channel/UCH7B9HDtgBsuKUH-fiKYInw">Ver en YouTube</a>
+      <a class="boton boton-secundario" href="https://www.tiktok.com/@weskitol">Ver en TikTok (@weskitol)</a>
+    </div>
+
+    <section aria-labelledby="que-hay">
+      <h2 id="que-hay">Qué encuentras en Weskitol</h2>
+      <div class="rejilla">
+        <div class="tarjeta">
+          <h3>Shorts verticales</h3>
+          <p>Momentos cortos, de menos de un minuto, en formato 9:16 y con subtítulos. Salen en YouTube Shorts y en TikTok.</p>
+        </div>
+        <div class="tarjeta">
+          <h3>Videos horizontales</h3>
+          <p>Los momentos en formato 16:9, para verlos en YouTube desde el computador o el televisor.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="credito">
+      <h2 id="credito">Crédito a Westcol</h2>
+      <p>El contenido original es de <strong>Westcol</strong>, que transmite en vivo en <a href="https://kick.com/westcol">kick.com/westcol</a>. Weskitol publica clips de sus directos <strong>con su autorización</strong>, y cada video lleva el crédito y el enlace a su canal. Si te gusta un clip, ve a ver el directo completo.</p>
+      <p>Weskitol no está afiliado a YouTube, Google, TikTok ni Kick, ni tiene su patrocinio.</p>
+    </section>
+
+    <section aria-labelledby="herramienta">
+      <h2 id="herramienta">Weskitol Clips: la herramienta que publica los clips</h2>
+      <p>Los clips se preparan y se publican con <strong>Weskitol Clips</strong>, una herramienta de automatización propia del canal hecha para este canal. Es de uso interno: no se ofrece al público y solo se conecta a las cuentas propias de Weskitol en YouTube y TikTok.</p>
+      <ol class="pasos">
+        <li><strong>Detecta</strong> los mejores momentos de los directos: clips populares y picos de actividad en el chat.</li>
+        <li><strong>Edita</strong> cada momento en vertical y en horizontal, con subtítulos, audio nivelado y el crédito a Westcol.</li>
+        <li><strong>Una persona del equipo revisa y aprueba</strong> cada clip. Nada se publica sin esa aprobación.</li>
+        <li><strong>Publica</strong> lo aprobado en el canal de YouTube de Weskitol, con la API de datos de YouTube, y en la cuenta de TikTok @weskitol, con la Content Posting API de TikTok.</li>
+      </ol>
+
+      <h3 id="permisos">Permisos que usa</h3>
+      <div class="tabla-envoltura">
+        <table>
+          <caption class="vigencia">Permisos que Weskitol Clips pide al conectar las cuentas del canal</caption>
+          <thead>
+            <tr><th scope="col">Plataforma</th><th scope="col">Permiso</th><th scope="col">Para qué</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>YouTube (Google)</td><td><code>youtube.upload</code></td><td>Subir los videos al canal de Weskitol y fijar su título, descripción, etiquetas, privacidad y fecha de publicación.</td></tr>
+            <tr><td>TikTok</td><td><code>user.info.basic</code></td><td>Confirmar que la cuenta conectada es @weskitol.</td></tr>
+            <tr><td>TikTok</td><td><code>video.upload</code></td><td>Enviar videos como borrador a la bandeja de TikTok para terminarlos en la app.</td></tr>
+            <tr><td>TikTok</td><td><code>video.publish</code></td><td>Publicar los videos aprobados directamente en el perfil @weskitol.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Estos permisos se usan solo sobre las cuentas propias del canal. Qué se guarda, cómo se protege y cómo revocar el acceso está en la <a href="privacidad.html">Política de privacidad</a>.</p>
+    </section>
+
+    <section aria-labelledby="legal">
+      <h2 id="legal">Privacidad y términos</h2>
+      <div class="rejilla">
+        <div class="tarjeta">
+          <h3><a href="privacidad.html">Política de privacidad</a></h3>
+          <p>Qué datos usa Weskitol Clips, para qué, cuánto tiempo se guardan y cómo revocar el acceso.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><a href="terminos.html">Términos de uso</a></h3>
+          <p>Reglas del sitio y de la herramienta, contenido de terceros y contacto.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="pie-interior">
+      <p><strong>Weskitol</strong> · Clips de los directos de Westcol, publicados con autorización.</p>
+      <p><a href="privacidad.html">Política de privacidad</a> · <a href="terminos.html">Términos de uso</a> · Contacto: <a href="mailto:weskitol.clips@gmail.com">weskitol.clips@gmail.com</a></p>
+      <p>© 2026 Weskitol.</p>
+    </div>
+  </footer>
+</body>
+</html>

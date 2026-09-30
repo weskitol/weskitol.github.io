@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Conexión con TikTok · Weskitol</title>
+  <meta name="description" content="Página de retorno de la autorización de TikTok para Weskitol Clips. Muestra el código en tu pantalla para copiarlo; no lo envía a ningún lado.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f7f7f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1012" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../estilos.css">
+  <script src="callback.js" defer></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <div class="cabecera-interior">
+      <a class="marca" href="../">
+        <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <rect width="64" height="64" rx="16" fill="#ffc53d"/>
+          <path d="M24 18.5v27a2 2 0 0 0 3 1.7l22-13.5a2 2 0 0 0 0-3.4L27 16.8a2 2 0 0 0-3 1.7z" fill="#17181a"/>
+          <rect x="11" y="18" width="5" height="28" rx="2.5" fill="#17181a"/>
+        </svg>
+        Weskitol
+      </a>
+      <nav class="nav" aria-label="Principal">
+        <ul>
+          <li><a href="../">Inicio</a></li>
+          <li><a href="../privacidad.html">Privacidad</a></li>
+          <li><a href="../terminos.html">Términos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <h1>Conexión con TikTok</h1>
+    <p class="entradilla">Esta página recibe la respuesta de TikTok cuando se conecta la cuenta del canal con <strong>Weskitol Clips</strong>. Copia el código y pégalo en la herramienta.</p>
+
+    <noscript>
+      <div class="aviso">
+        <p>JavaScript está desactivado, así que el código no se puede mostrar aquí. Copia la <strong>dirección completa</strong> de esta página, desde la barra del navegador, y pégala en la herramienta: el código va después de <code>code=</code>.</p>
+      </div>
+    </noscript>
+
+    <div id="sin-datos" class="aviso" hidden>
+      <p><strong>No llegó ningún código.</strong> Esta página solo muestra algo cuando TikTok la abre después de autorizar la conexión. Si llegaste aquí por otro camino, no tienes que hacer nada.</p>
+    </div>
+
+    <div id="bloque-error" class="error-caja" role="alert" hidden>
+      <p><strong>TikTok devolvió un error y no concedió el acceso.</strong> Vuelve a intentarlo desde la herramienta. Si se repite, revisa que la URL de redirección y los permisos de la app coincidan con los del portal de TikTok for Developers.</p>
+      <div class="campo">
+        <label class="campo-etiqueta" for="valor-error">Error (<code>error</code>)</label>
+        <textarea id="valor-error" class="campo-valor" rows="1" readonly spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+      </div>
+      <div class="campo" id="campo-error-descripcion" hidden>
+        <label class="campo-etiqueta" for="valor-error-descripcion">Descripción (<code>error_description</code>)</label>
+        <textarea id="valor-error-descripcion" class="campo-valor" rows="2" readonly spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+      </div>
+    </div>
+
+    <div id="resultado" hidden>
+      <div class="campo" id="campo-code" hidden>
+        <label class="campo-etiqueta" for="valor-code">Código de autorización (<code>code</code>)</label>
+        <textarea id="valor-code" class="campo-valor" rows="3" readonly spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+        <button type="button" class="boton" data-copiar="valor-code">Copiar código</button>
+        <span class="estado-copia" id="estado-valor-code" role="status" aria-live="polite"></span>
+      </div>
+
+      <div class="campo" id="campo-state" hidden>
+        <label class="campo-etiqueta" for="valor-state">Estado (<code>state</code>)</label>
+        <textarea id="valor-state" class="campo-valor" rows="1" readonly spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+        <button type="button" class="boton boton-secundario" data-copiar="valor-state">Copiar state</button>
+        <span class="estado-copia" id="estado-valor-state" role="status" aria-live="polite"></span>
+      </div>
+
+      <div class="campo" id="campo-scopes" hidden>
+        <label class="campo-etiqueta" for="valor-scopes">Permisos concedidos (<code>scopes</code>)</label>
+        <textarea id="valor-scopes" class="campo-valor" rows="1" readonly spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+      </div>
+
+      <div class="aviso" id="consejos" hidden>
+        <ul>
+          <li>Pega el código en Weskitol Clips <strong>enseguida</strong>: caduca en pocos minutos y sirve una sola vez.</li>
+          <li>Comprueba que el <code>state</code> coincide con el que mostró la herramienta. Si no coincide, no uses el código.</li>
+          <li>No compartas este código con nadie. Esta página no lo envía a ningún lado: solo lo muestra en tu pantalla.</li>
+        </ul>
+      </div>
+
+      <div class="campo" id="campo-url" hidden>
+        <p>Si la herramienta te pide la dirección completa en lugar del código, copia esta:</p>
+        <textarea id="valor-url" class="campo-valor" rows="3" readonly spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="Dirección completa de esta página"></textarea>
+        <button type="button" class="boton boton-secundario" data-copiar="valor-url">Copiar la dirección completa</button>
+        <span class="estado-copia" id="estado-valor-url" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <div class="pie-interior">
+      <p><strong>Weskitol</strong> · Clips de los directos de Westcol, publicados con autorización.</p>
+      <p><a href="../privacidad.html">Política de privacidad</a> · <a href="../terminos.html">Términos de uso</a> · Contacto: <a href="mailto:weskitol.clips@gmail.com">weskitol.clips@gmail.com</a></p>
+      <p>© 2026 Weskitol.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,498 @@
+/* Weskitol: hoja de estilos única del sitio (sin fuentes ni recursos externos). */
+
+:root {
+  color-scheme: light dark;
+  --fondo: #f7f7f4;
+  --superficie: #ffffff;
+  --texto: #17181a;
+  --texto-suave: #4b4d52;
+  --borde: #d9d9d2;
+  --enlace: #8a4600;
+  --acento: #ffc53d;
+  --sobre-acento: #17181a;
+  --codigo-fondo: #f0efe9;
+  --aviso-fondo: #fff4d6;
+  --aviso-borde: #c98a00;
+  --error-fondo: #fde8e8;
+  --error-borde: #b42318;
+  --error-texto: #8c1d13;
+  --radio: 14px;
+  --ancho: 46rem;
+  --fuente: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #0f1012;
+    --superficie: #18191c;
+    --texto: #ededea;
+    --texto-suave: #b3b4b0;
+    --borde: #34353a;
+    --enlace: #ffc53d;
+    --codigo-fondo: #222327;
+    --aviso-fondo: #2a2210;
+    --aviso-borde: #c98a00;
+    --error-fondo: #2c1414;
+    --error-borde: #f97066;
+    --error-texto: #fda29b;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--fuente);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: var(--enlace);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--enlace);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.saltar {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 10;
+  padding: 0.6rem 1rem;
+  background: var(--acento);
+  color: var(--sobre-acento);
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+.saltar:focus {
+  top: 0.75rem;
+}
+
+/* ---------- Cabecera y pie ---------- */
+
+.cabecera {
+  border-bottom: 1px solid var(--borde);
+  background: var(--superficie);
+}
+
+.cabecera-interior,
+.pie-interior,
+main {
+  width: 100%;
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.cabecera-interior {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--texto);
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.marca svg {
+  width: 32px;
+  height: 32px;
+  flex: none;
+}
+
+.nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav a {
+  display: inline-block;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  color: var(--texto);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.nav a:hover {
+  background: var(--codigo-fondo);
+}
+
+.nav a[aria-current="page"] {
+  background: var(--acento);
+  color: var(--sobre-acento);
+}
+
+.pie {
+  margin-top: 3rem;
+  border-top: 1px solid var(--borde);
+  background: var(--superficie);
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+.pie-interior {
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+.pie p {
+  margin: 0.35rem 0;
+}
+
+.pie a {
+  color: var(--texto);
+}
+
+/* ---------- Contenido ---------- */
+
+main {
+  padding-top: 1.5rem;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 7vw, 2.6rem);
+  margin: 0.5rem 0 0.75rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin: 2.25rem 0 0.75rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.5rem;
+}
+
+p,
+ul,
+ol {
+  margin: 0 0 1rem;
+}
+
+ul,
+ol {
+  padding-left: 1.3rem;
+}
+
+li + li {
+  margin-top: 0.35rem;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  background: var(--codigo-fondo);
+  padding: 0.1em 0.35em;
+  border-radius: 5px;
+  overflow-wrap: anywhere;
+}
+
+.entradilla {
+  font-size: 1.15rem;
+  color: var(--texto-suave);
+  max-width: 38rem;
+}
+
+.vigencia {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+.tarjeta {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 1.1rem 1.1rem 0.4rem;
+  margin: 1rem 0;
+}
+
+.tarjeta > h2:first-child,
+.tarjeta > h3:first-child {
+  margin-top: 0.1rem;
+}
+
+.rejilla {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  margin: 1rem 0;
+}
+
+.rejilla .tarjeta {
+  margin: 0;
+}
+
+.pasos {
+  counter-reset: paso;
+  list-style: none;
+  padding-left: 0;
+}
+
+.pasos li {
+  counter-increment: paso;
+  position: relative;
+  padding-left: 2.4rem;
+  margin-top: 0.8rem;
+}
+
+.pasos li::before {
+  content: counter(paso);
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background: var(--acento);
+  color: var(--sobre-acento);
+  font-weight: 800;
+  font-size: 0.9rem;
+  line-height: 1.7rem;
+  text-align: center;
+}
+
+.aviso {
+  background: var(--aviso-fondo);
+  border-left: 4px solid var(--aviso-borde);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin: 1rem 0;
+}
+
+.aviso > :last-child {
+  margin-bottom: 0;
+}
+
+.indice {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 0.9rem 1.1rem;
+  margin: 1.25rem 0;
+}
+
+.indice h2 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+}
+
+.indice ol {
+  margin: 0;
+}
+
+/* Tabla de permisos: en el móvil cada fila se lee como bloque. */
+.tabla-envoltura {
+  overflow-x: auto;
+  margin: 0 0 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.97rem;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--borde);
+}
+
+th {
+  font-weight: 700;
+}
+
+caption {
+  caption-side: top;
+  text-align: left;
+  padding-bottom: 0.4rem;
+}
+
+/* ---------- Botones ---------- */
+
+.botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  border: 2px solid var(--acento);
+  background: var(--acento);
+  color: var(--sobre-acento);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boton:hover {
+  filter: brightness(0.95);
+  text-decoration: none;
+}
+
+.boton-secundario {
+  background: transparent;
+  border-color: var(--texto);
+  color: var(--texto);
+}
+
+.boton-secundario:hover {
+  background: var(--codigo-fondo);
+  filter: none;
+}
+
+/* ---------- Página de retorno de TikTok ---------- */
+
+.campo {
+  margin: 1rem 0 1.25rem;
+}
+
+.campo-etiqueta {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.campo-valor {
+  display: block;
+  width: 100%;
+  min-height: 3rem;
+  margin: 0 0 0.6rem;
+  padding: 0.75rem 0.85rem;
+  background: var(--codigo-fondo);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  color: var(--texto);
+  font-family: var(--mono);
+  font-size: 1rem; /* 16 px: en iPhone evita el zoom al tocar el campo */
+  line-height: 1.45;
+  resize: vertical;
+  white-space: pre-wrap;
+  word-break: break-all;
+  user-select: all;
+  -webkit-user-select: all;
+}
+
+.estado-copia {
+  display: inline-block;
+  margin-left: 0.5rem;
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+.error-caja {
+  background: var(--error-fondo);
+  border-left: 4px solid var(--error-borde);
+  color: var(--texto);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin: 1rem 0;
+}
+
+.error-caja strong {
+  color: var(--error-texto);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ---------- Pantallas más anchas ---------- */
+
+@media (min-width: 40rem) {
+  body {
+    font-size: 1.075rem;
+  }
+
+  main {
+    padding-top: 2.5rem;
+  }
+
+  .rejilla {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tarjeta {
+    padding: 1.4rem 1.5rem 0.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .boton,
+  .nav a {
+    transition: background-color 0.15s ease, filter 0.15s ease;
+  }
+}
+
+@media print {
+  .cabecera nav,
+  .saltar,
+  .botones {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+}
